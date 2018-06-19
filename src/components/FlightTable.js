@@ -14,7 +14,7 @@ class FlightTable extends React.Component {
     tableSettings: PropTypes.shape({
       editableStatus: PropTypes.bool.isRequired  
     }).isRequired,    
-
+    editFlights: PropTypes.func.isRequired
   };
 
 
@@ -22,9 +22,10 @@ class FlightTable extends React.Component {
   render() {
     var flights = this.props.flights; 
     var isEditable = this.props.tableSettings.editableStatus;
+    var editFlights = this.props.editFlights;
     return (
       <div>
-        <Table flights={flights} editableTable={isEditable} />        
+        <Table flights={flights} editableTable={isEditable} editFlights={editFlights} />        
       </div>
     )
     ;

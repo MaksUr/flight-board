@@ -14,8 +14,8 @@ class Table extends React.Component {
         flightNumber: PropTypes.string.isRequired
       }
     ).isRequired).isRequired,
-    editableTable: PropTypes.bool.isRequired
-      // editFlights: PropTypes.func.isRequired
+    editableTable: PropTypes.bool.isRequired,
+    editFlights: PropTypes.func.isRequired
   };
 
   displayValue = (val) => {

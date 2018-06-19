@@ -20,6 +20,9 @@ export default function flights(state = initialState, action) {
         ...state,         
         action.flight
     ]
+
+    case 'CHANGE_ORDER_FLIGHTS':
+      return [...action.flights]
         
     default:
       return state;
