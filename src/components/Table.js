@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from 'prop-types'; // ES6
-import { render } from "react-dom";
 
 import moment from 'moment';
 import ReactTable from "react-table";
@@ -28,7 +27,6 @@ class Table extends React.Component {
 
   renderEditable = (cellInfo) => {
 
-    const data = [...this.props.flights];
     return (
       <div
         style={{ backgroundColor: "#fafafa" }}

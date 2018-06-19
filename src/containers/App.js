@@ -4,9 +4,6 @@ import VisibleFlightTable from '../containers/VisibleFlightTable'
 import AddFlight from '../containers/AddFlight'
 import EditableBoardCheckBox from '../containers/EditableBoardCheckBox'
 
-
-
-
 class App extends Component {
   render() {    
     return (

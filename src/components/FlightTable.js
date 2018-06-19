@@ -18,7 +18,6 @@ class FlightTable extends React.Component {
   };
 
 
-
   render() {
     var flights = this.props.flights; 
     var isEditable = this.props.tableSettings.editableStatus;
