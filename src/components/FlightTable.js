@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Table } from './Table'
+import Table from './Table'
 
 class FlightTable extends React.Component {
   static propTypes = {

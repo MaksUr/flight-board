@@ -4,11 +4,17 @@ import { render } from "react-dom";
 
 import moment from 'moment';
 import ReactTable from "react-table";
+import "react-table/react-table.css";
 
 class Table extends React.Component {
   static propTypes = { 
-      flights: PropTypes.array.isRequired,
-      editableTable: PropTypes.bool.isRequired
+      
+    flights: PropTypes.arrayOf(PropTypes.shape(
+      {
+        flightNumber: PropTypes.string.isRequired
+      }
+    ).isRequired).isRequired,
+    editableTable: PropTypes.bool.isRequired
       // editFlights: PropTypes.func.isRequired
   };
 
@@ -28,11 +34,11 @@ class Table extends React.Component {
         style={{ backgroundColor: "#fafafa" }}
         contentEditable
         suppressContentEditableWarning
-        // onBlur={e => {
-        //   const data = [...this.props.flights];
-        //   data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-        //   this.props.editFlights(data)
-        // }}
+        onBlur={e => {
+          const data = [...this.props.flights];
+          data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+          this.props.editFlights(data)
+        }}
         dangerouslySetInnerHTML={{
           __html: this.displayValue(this.props.flights[cellInfo.index][cellInfo.column.id])
         }}        
@@ -48,11 +54,11 @@ class Table extends React.Component {
           data={ flights }
           columns={[
                 {
-                  id: "flight",
-                  Header: "Flight",
-                  accessor: "flight",
+                  id: "flightNumber",
+                  Header: "Flight Number",
+                  accessor: "flightNumber",
                   maxWidth: "300",
-                  width: "100",
+                  width: "300",
                   Cell: (this.props.editableTable ? this.renderEditable : null)
                 },
                 {
